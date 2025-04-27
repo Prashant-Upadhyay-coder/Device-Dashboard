@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.table thead, .table > tbody {
+    border: 1px solid #dee2e661 !important;
+}
+
+.table tbody tr td {
+    color: #333335;
+    font-weight: 400;
+}
+
+.table-bordered thead {
+    background-color: #dee2e666 !important;
+}

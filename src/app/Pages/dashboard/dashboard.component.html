@@ -1,0 +1,138 @@
+<div class="container-fluid">
+    <!-- Main Dashboard View -->
+    <div id="dashboardView" class="mt-2">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </nav>
+
+        <!-- Summary Cards -->
+        <div class="row" >
+            @for(item of summaryData; track item.label){
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="card custom-card overflow-hidden">
+                        <div class="card-body">
+                            <div class="d-flex align-items-top justify-content-between">
+                                <div>
+                                    <span class="avatar avatar-md avatar-rounde" [ngClass]="item.color">
+                                        <i [ngClass]="item.icon" class="fs-16"></i>
+                                    </span>
+                                </div>
+                                <div class="flex-fill ms-3">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                        <div>
+                                            <p class="text-muted mb-0">{{item.label}}</p>
+                                            <h4 class="fw-semibold mt-1 count" [attr.data-target]="item.count">{{item.count}}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+      
+        </div>
+
+        <!-- Device Distribution Chart -->
+
+        <div class="row">
+                <div class="col-xxl-6 col-xl-6 col-lg-5 col-md-4 col-sm-12 col-12">
+                    <div class="card ">
+                     <div class="card-header">
+                            <div class="card-title">
+                                Asset Distribution
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="deviceChart" height="268"></canvas>
+                        </div>
+                    </div>
+             </div>
+             <div class="col-xxl-6 col-xl-6 col-lg-7 col-md-8 col-sm-12 col-12">
+                    <div class="row">
+                        @for( device of devices; track device.type){
+                            <div class="col-md-4 col-sm-4 col-6" >
+                                <div class="card device-card" [attr.data-device]="device.type" (click)="OnsystemList()">
+                                    <div class="card-body text-center">
+                                        <i class="bi" [ngClass]="device.icon" style="font-size: 2rem;"></i>
+                                        <h5 class="text-muted mt-1">{{device.title}} </h5>
+                                        <p class="text-muted mb-1">{{device.count}} devices</p>
+                                        <span class="badge" [ngClass]="device.alertClass">{{device.alerts}} alerts</span>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                        }
+                        
+                    </div>
+             </div>
+        </div>
+        <!-- Device Cards -->
+
+        <!-- Recent Alerts Table -->
+        <div class="card">
+            <div class="card-header">
+                    <div class="card-title">
+                        Recent Alerts
+                    </div>
+            </div>
+            <div class="card-body">
+             
+                <table datatable [dtOptions]="dtOptions" class="table table-bordered">
+                    <thead>
+                       
+                        <tr>
+                            <th>Device</th>
+                            <th>Device Type</th>
+                            <th>Type</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                   
+                    </thead>
+                    <tbody>
+                        @if(alertdata && alertdata.length > 0){
+                        @for(body of alertdata; track body.device){
+                            <tr>
+                                <td>{{body.device}}</td>
+                                <td>{{body.deviceType}}</td>
+                                <td>{{body.type}}</td>
+                                <td>{{body.message}}</td>
+                                <td>{{body.date}}</td>
+                                <td>{{body.status}}</td>
+
+                                <td >
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-sm btn-icon btn-secondary-transparent rounded-pill btn-wave" (click)="ondeleteAlert(body)">
+                                            <i class="ri-delete-bin-line"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-icon btn-danger-transparent rounded-pill btn-wave me-5" (click)="onviewAlert(body)">
+                                            <i class="ri-chat-settings-line"></i>
+                                        </button>
+                                    </div>
+                                  
+                                   
+                                  </td>
+                             
+                            </tr>
+                        }    } @else{
+                          
+                             <tr>
+                                 <td colspan="7">No alerts found</td>
+                               </tr>
+                           
+                         }
+                    </tbody>
+                 </table>
+                
+        
+
+            </div>
+        </div>
+    </div>
+    </div>
+    

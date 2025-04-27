@@ -1,0 +1,39 @@
+.device-card {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+    .device-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+
+
+.summary-card {
+    border-left: 4px solid #0d6efd;
+}
+
+.alert-card {
+    border-left: 4px solid #dc3545;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+}
+
+#backToDashboard, #backToDeviceList {
+    display: none;
+}
+
+.device-list-item {
+    cursor: pointer;
+}
+
+    .device-list-item:hover {
+        background-color: #f8f9fa;
+    }
+    .pagination.dt-paging-button >.page-link  {
+        font-size: 10px;
+      }

@@ -1,0 +1,23 @@
+.outline {
+    color: #6c757d;
+    border-color: #EE6D6F;
+}
+
+    .outline:hover {
+        color: #fff;
+        background-color: #EE6D6F;
+        border-color: #EE6D6F;
+    }
+
+    .outline:active {
+        color: #fff;
+        background-color: #EE6D6F;
+        border-color: #EE6D6F;
+    }
+
+
+.btn-group > button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+}

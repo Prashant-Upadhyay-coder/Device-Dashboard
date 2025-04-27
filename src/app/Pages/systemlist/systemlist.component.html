@@ -1,0 +1,94 @@
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          
+                <div class="">
+                    <input type="hidden" value="@ViewBag.devicenameVB" id="hdnDeviceName" />
+                    <h5 class="Header-Title mb-0">
+                        <a routerLink="/main">Asset Management</a>/
+                        <span style="font-size:16px; font-weight:500; color:#4d4dff">
+                            <a>System List</a>
+                        </span>
+                    </h5>
+                </div>
+                <div class="d-flex">
+                    <div class="btn-group my-1 gap-0">
+                        <button type="button" class="btn btn-danger">Action</button>
+                        <button type="button"
+                                class="btn btn-danger dropdown-toggle dropdown-toggle-split me-2"
+                                data-bs-toggle="dropdown" aria-expanded="false" disabled id="drpDown" data-bs-display="static">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#systmList_Action_send_msg_model">Send Message</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#systmList_Action_execute_cmd_model">Execute Command</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#Action_system_control_model">System Control</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#SystemList_Action_refresh_data_model">Refresh All Data</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#Action_clean_temporary_file_model">Clean Temporary Files</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#systmList_Action_manage_system_registry_model">Manage System Registry</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#systmList_Action_set_csat_serverIP_model">Set CSAT Server IP</a></li>
+                        </ul>
+                    </div>
+                    <!-- First Button with Dropdown -->
+                </div>
+          
+        </div>
+        <div class="card-body">
+            
+            
+            <div class="mb-2" style="position:relative;">
+                <div class="border" style="border-color:#b7b7b7;">
+                    <label for="Advance Search" style="position:absolute;top:-9px;background-color:#ffffff;color: #3D93C8;">&nbsp; Advance Search &nbsp;</label>
+                    <form id="report_user_info_frm" name="report_user_info_frm" class="mt-3 ms-2">
+                        <div class="row my-3">
+                            <div class="col-sm-3">
+                                <label for="add_systemlist_branch" class="form-label">Branch/Unit</label>
+                                <select class="form-select form-select-sm" id="add_systemlist_branch" name="add_systemlist_branch"></select>
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="user_information_device" class="form-label">Device</label>
+                                <select class="form-select form-select-sm" id="user_information_device" name="user_information_device">
+                                    <option value="0">---Select Device---</option>
+                                    <option value="1">System Name</option>
+                                    <option value="2">IP Address</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 sysnameshow1" style="display:none">
+                                <label for="sub_type" class=" form-label" id="label_valuee1"></label>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class=" hideable1 sysnameshow1" id="select">
+                                            <select class="form-select form-select-sm" id="report_user_info_systmname_ip" name="report_user_info_systmname_ip"></select>
+                                        </div>
+                                        <div class="hideable1 " id="input">
+                                            <input type="text" class="form-control form-control-sm" id="report_service_dtail_systmname_ip" name="report_service_dtail_systmname_ip" placeholder="Enter System Name" value="0" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class=" hideable1 sysnameshow1">
+                                            <input type="checkbox" class="form-check-input" id="report_user_info_checkbox1" name="report_user_info_checkbox1" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Select Field -->
+                            <div class="col-sm-3" style="display:flex; margin-top:24px;">
+                                <button type="button" class="btn btn-sm btn-warning" id="add_systemlist_showbtn" >
+                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="23">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- data table-->
+                <div class="row mt-4">
+                    <div class="col-sm-12 ">
+                        <table id="" class="table  table-bordered" style="width:100%;"></table>
+                    </div>
+                    <!-- / data table-->
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,50 @@
+.table-wrapper {
+  overflow-x: auto; /* Enables horizontal scrolling */
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+  table-layout: fixed;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #cf7041;
+  color: white;
+}
+
+td {
+  background-color: #fff;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+select {
+  padding: 5px;
+  font-size: 12px;
+}
+
+/* Sticky Columns */
+.sticky-attendance {
+  position: sticky;
+  left: 0;
+  background-color: #f9f9f9; /* Make the sticky columns stand out */
+  z-index: 1; /* Keep the sticky columns above the scrollable ones */
+}
+
+/* Add z-index for the first few columns to ensure sticky ones are always above */
+th.sticky-attendance, td.sticky-attendance {
+  position: sticky;
+  background-color: #fff;
+  z-index: 2;
+}
